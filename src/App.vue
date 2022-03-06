@@ -6,12 +6,13 @@
 
       <YToolbar />
 
-      <v-btn color="tertiary">
-        Hello !
-      </v-btn>
-
-      <!-- <router-view :key="$route.fullPath" /> -->
-
+      <div id="view-container" ref="appContent" class="hide">
+        <transition name="fade" mode="out-in" appear>
+          <router-view :key="$route.fullpath" />
+        </transition>
+      </div>
+      
+        
     </div>
   </v-app>
 
@@ -25,11 +26,15 @@
   @Component({
     components: {
       YToolbar,
-      YBackground
+      YBackground,
     },
   })
   export default class App extends Vue {
-
+    mounted() {
+      setTimeout(() => {
+        (this.$refs.appContent as HTMLElement).className = "show";
+      }, 100);
+    }
   }
 
 </script>
@@ -37,12 +42,43 @@
 
 <style lang="scss">
   @import './styles/variables.scss';
+  @import './styles/global-styles.scss';
 
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'main-font', Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    background: none;
+    transition: opacity 1s ease;
+    transition-delay: 0.5s;
   }
+
+
+  #view-container {
+    transition: opacity 1s ease;
+    transition-delay: 0.4s;
+  }
+
+  #view-container.hide {
+    opacity: 0;
+  }
+
+  #view-container.show {
+    opacity: 1;
+  }
+
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.22s ease;
+  }
+
+
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
 </style>

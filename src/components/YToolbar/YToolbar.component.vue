@@ -6,20 +6,15 @@
           <router-link class="header-router-link" to="/">Accueil</router-link>
         </div>
         <div class="header-router-link-box">
-          <router-link class="header-router-link" to="/">À propos</router-link>
+          <router-link class="header-router-link" to="/about">À propos</router-link>
         </div>        
         <div class="header-router-link-box">
-          <router-link class="header-router-link" to="/">Contacts</router-link>
+          <router-link class="header-router-link" to="/projects">Projets</router-link>
         </div>
         <div class="header-router-link-box">
-          <router-link class="header-router-link" to="/">Chips</router-link>
+          <router-link class="header-router-link" to="/contacts">Contacts</router-link>
         </div>
       </div>
-
-      <v-toolbar-title class="light_accent--text">
-        Youri
-      </v-toolbar-title>
-      <div class="chips"> chips</div>
 
     </v-app-bar>
   </div>
