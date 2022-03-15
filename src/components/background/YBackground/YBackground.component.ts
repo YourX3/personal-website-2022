@@ -26,6 +26,6 @@ export default class YBackground extends Vue {
    */
   generateStars() : void {
     // defines displayed star count 
-    this.starCount = Math.round(Math.random() * 40) + 120;
+    this.starCount = Math.round(Math.random() * 50) + 150;
   }
 }

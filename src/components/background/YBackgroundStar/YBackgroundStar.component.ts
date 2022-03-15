@@ -5,6 +5,13 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 */
 @Component({})
 export default class YBackgroundStar extends Vue {
+  // window section x position, from 0 to 2
+  @Prop({default: 0})
+  sectionX: number;
+
+  // window section y position, from 0 to 2
+  @Prop({default: 0})
+  sectionY: number;
 
   // star birth animation duration
   birthDuration : number;
@@ -43,9 +50,12 @@ export default class YBackgroundStar extends Vue {
    */
   private init() : void {
     // to create a real circle around center
-    const windowLargestDimension = Math.max(window.screen.width, window.screen.height);
-    this.xStartPos = Math.random() * windowLargestDimension; 
-    this.yStartPos = Math.random() * windowLargestDimension; 
+    let windowLargestDimension = Math.max(window.screen.width, window.screen.height) /3;
+    const extraWidth = 100/3;
+    // enlarge circle a bit to avoid blank spaces due to rotation
+    windowLargestDimension += 100/3;
+    this.xStartPos = (Math.random() + this.sectionX) * windowLargestDimension - extraWidth/2; 
+    this.yStartPos = (Math.random() + this.sectionY) * windowLargestDimension - extraWidth/2; 
     this.size = Math.random() * 10 + 6;
     this.birthDuration = Math.random() * 4000 + 1200; // in ms
     this.lightIntensity = Math.random() * 0.7 + 0.1;

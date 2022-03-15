@@ -2,8 +2,12 @@
   <div class="content">
     
     <div class="star-box">
-      <YBackgroundStar v-for="index in starCount" :key="index" />
+      <div v-for="index in 10" :key="index" >
+        <YBackgroundStar v-for="index2 in (Math.round(starCount/9))" :key="index2" 
+           :sectionX="(index-1) % 3" :sectionY="Math.floor((index-1) / 3)" />
+      </div>
     </div>
+    
 
   </div>
 </template>
