@@ -3,24 +3,16 @@
 
     <section class="home-section">
 
-      <div class="title-content">
-        <div class="title-name">
-          Youri Menubarbe
+      <div class="splitted-section">
+        <div class="section-left">
+          <YHomeTitle />
         </div>
 
-        <div class="title-activity">
-          Étudiant en école d'ingénieur
-        </div>
-
-        <div class="title-job">
-          Développeur Web / Jeu vidéo
-        </div>
-
-        <div class="title-job">
-          Pratique le kayak
+        <div class="section-right">
+          <YHomeNewsScroller/>
         </div>
       </div>
-
+      
     </section>
     
   </div>

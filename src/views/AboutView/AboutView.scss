@@ -1,0 +1,55 @@
+
+.about-section {
+  padding: 60px 10px 0px 10px;
+  max-width: 64rem;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-title {
+  font-size: 2em;
+  color: var(--light);
+  font-weight: 900;
+  text-indent: 50px;
+  margin-bottom: 10px;
+}
+
+.about-text {
+  font-size: 1.2em;
+  color: var(--light);
+}
+
+.spe-color {
+  color: var(--v-secondary-lighten3);
+  font-weight: 900;
+}
+
+li {
+  margin-top: 7px;
+}
+
+
+.self-photo-box {
+  float: right;
+  width: 250px;
+  height: 250px;
+  max-width: 250px;
+  max-height: 250px;
+
+  padding: 50px;
+}
+
+.self-photo {
+  width: 150px;
+  height: 150px;
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 4px 30px;
+  border-style: dotted;
+  border-color: var(--secondary);
+  border-width: 5px;
+  padding: 5px;
+  
+  object-fit: cover;
+}

@@ -3,16 +3,16 @@
     <v-app-bar class="header-toolbar">
       <div class="header-links-box">
         <div class="header-router-link-box">
-          <router-link class="header-router-link" to="/">Accueil</router-link>
+          <router-link class="header-router-link" :to="getPathWithLanguage('/')">{{ languageData.home }}</router-link>
         </div>
         <div class="header-router-link-box">
-          <router-link class="header-router-link" to="/about">À propos</router-link>
+          <router-link class="header-router-link" :to="getPathWithLanguage('/about')">{{ languageData.about }}</router-link>
         </div>        
         <div class="header-router-link-box">
-          <router-link class="header-router-link" to="/projects">Projets</router-link>
+          <router-link class="header-router-link" :to="getPathWithLanguage('/projects')">{{ languageData.projects }}</router-link>
         </div>
         <div class="header-router-link-box">
-          <router-link class="header-router-link" to="/contacts">Contacts</router-link>
+          <router-link class="header-router-link" :to="getPathWithLanguage('/contacts')">{{ languageData.contacts }}</router-link>
         </div>
       </div>
 

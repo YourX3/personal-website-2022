@@ -1,0 +1,22 @@
+
+.selector-content {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  z-index: 1;
+  display: flex;
+}
+
+.link-box {
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+.language-link {
+  color: var(--light);
+  text-decoration: none;
+}
+
+.language-link.router-link-exact-active {
+  text-decoration: underline;
+}
