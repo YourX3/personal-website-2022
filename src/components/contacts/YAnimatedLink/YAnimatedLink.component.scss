@@ -1,0 +1,94 @@
+
+
+.link-content {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon-circle {
+  width: 84px;
+  height: 84px;
+  border-radius: 1000px;
+  border: solid 3px var(--light);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: -moz-linear-gradient(90deg, var(--light) 0%, var(--light) 0%, rgba(233, 244, 255, 0) 0%);
+  background: -webkit-linear-gradient(90deg, var(--light) 0%, var(--light) 0%, rgba(233, 244, 255, 0) 0%);
+  background: linear-gradient(90deg, var(--light) 0%, var(--light) 0%, rgba(233, 244, 255, 0) 0%);
+  transition: 0.3s;
+}
+
+.link-content:hover .icon-circle {
+  background: -moz-linear-gradient(70deg, rgba(233, 244, 255, 0) 45%, var(--light) 46%, var(--light) 55%, rgba(233, 244, 255, 0) 56%);
+  background: -webkit-linear-gradient(70deg,rgba(233, 244, 255, 0) 45%,  var(--light) 46%, var(--light) 55%, rgba(233, 244, 255, 0) 56%);
+  background: linear-gradient(70deg, rgba(233, 244, 255, 0) 45%, var(--light) 46%, var(--light) 55%, rgba(233, 244, 255, 0) 56%);
+
+  background-size: 300% 100%;
+  animation: gradient 3s linear infinite;
+  animation-direction: normal alternate-reverse;
+  box-shadow: 0 0 7px var(--light);
+}
+@keyframes gradient {
+  0% {background-position: 0%}
+  15% {background-position: 100%}
+  100% {background-position: 100%}
+}
+
+
+.animated-icon {
+  color: var(--light) !important;
+  font-size: 50px !important;
+}
+
+
+.link-title-box {
+  font-size: 1.6em;
+  font-weight: 900;
+  color: var(--light);
+  border: solid 3px var(--light);
+  transition: transform 1s ease, color 0.5s ease 0.6s, box-shadow 0.3s;
+  letter-spacing: 1px;
+}
+
+.link-title-box.right {
+  border-radius: 0 100px 100px 0;
+  border-width: 3px 3px 3px 0;
+  transform: translateX(-12px);
+  text-indent: 8px;
+  padding: 7px 26px 5px 20px;
+}
+.link-title-box.hide.right {
+  transform: translateX(calc(-1 * 50% - 12px)) scaleX(0);
+  color: #ffffff00;
+}
+.link-title-box.show.right {
+  transform:  translateX(-12px) scaleX(1);
+  color: var(--light);
+}
+.link-content:hover .link-title-box.right {
+  box-shadow: 5px 0px 5px var(--light);
+}
+
+.link-title-box.left {
+  border-radius: 100px 0 0 100px;
+  border-width: 3px 0 3px 3px;
+  transform: translateX(12px);
+  padding: 7px 28px 5px 26px;
+}
+.link-title-box.hide.left {
+  transform: translateX(calc(50% + 12px)) scaleX(0);
+  color: #ffffff00;
+}
+.link-title-box.show.left {
+  transform:  translateX(12px) scaleX(1);
+  color: var(--light);
+}
+.link-content:hover .link-title-box.left {
+  box-shadow: -5px 0px 5px var(--light);
+}
+

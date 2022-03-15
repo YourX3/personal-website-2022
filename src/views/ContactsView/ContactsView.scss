@@ -1,0 +1,42 @@
+
+.links-box {
+  width: 65rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 450px;
+  position: relative;
+}
+
+.send-email-box {
+  margin-top: 20px;
+
+  color: var(--v-secondary-lighten3);
+  font-size: 1.4em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-email-button {
+  font-size: 1.1em !important;
+  font-weight: 900 !important;
+  text-transform: none;
+  color: var(--v-secondary-lighten3) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px !important;
+  height: unset !important;
+  border-radius: 100px !important;
+}
+
+.send-email-icon {
+  font-size: 30px;
+  color: var(--v-secondary-lighten3);
+  margin-right: 20px;
+}
