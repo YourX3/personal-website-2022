@@ -5,7 +5,7 @@ export const vuetifyTheme = {
       light: {
         primary: '#12263A',
         secondary: '#5C6EA5',
-        tertiary: '#0FA481',
+        tertiary: '#14ad8a',
         accent: '#8c9eff',
         light_accent: '#ffffff',
         light: '#C5D8D1',

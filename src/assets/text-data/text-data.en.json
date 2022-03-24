@@ -18,11 +18,38 @@
     "title" : "About",
     "text1" : "Hello ! I'm",
     "speColorText1" : "Youri Menubarbe",
-    "text2" : ", je suis passionné par la création depuis toujours, mais c'est en développement web et de jeux vidéo que j'ai trouvé ma voie il y a quelques années. ",
-    "text3" : "Je suis étudiant en préparation intégrée de l'école d'ingénieur POLYTECH à Lyon. Je ne suis donc pas encore un professionnel, mais j’ai déjà pu acquérir de diverses compétences en pratiquant sur des projets personnels majoritairement.",
-    "text4" : "Je suis principalement axé sur la programmation, mais d’autres domaines que j’ai pu expérimenter m’intéressent également, comme l’UI design, le level design, ou bien la composition musicale.",
-    "text5" : "Mon expérience en entreprise est pour l’instant à bâtir. Cependant, j’ai pu me former pour arriver à une maîtrise plus ou moins solide de langages et technologies :",
-    "text6" : "Dans le Jeu vidéo, j’ai un bon niveau en C/C++ et C#. J’ai principalement codé sur la plateforme Unity pendant plusieurs années.",
-    "text7" : "Dans le web, je maitrise le CSS, HTML, Js, Ts. Je me débrouille aussi en Vuejs en front et NodeJs / NestJs en back."
+    "text2" : ", I've always been passionate about creation, but it's in web and video game development that I found my way a few years ago.",
+    "text3" : "I am a student in integrated preparation of the engineering school POLYTECH in Lyon. I am not yet a professional, but I have already acquired various skills by practicing on personal projects mostly.",
+    "text4" : "I'm mainly focused on programming, but I'm also interested in other domains that I've been able to experiment, like UI design, level design, or music composition.",
+    "text5" : "My business experience is still to be built. However, I was able to train myself to reach a more or less solid mastery of languages and technologies:",
+    "text6" : "In video game development, I have a good level in C/C++ and C#. I mainly coded on the Unity platform for several years.",
+    "text7" : "In the web, I master CSS, HTML, Js, Ts. I'm also good in Vuejs in front-end and NodeJs / NestJs in back-end."
+  },
+
+  "contactsData" : {
+    "github" :  "Github",
+    "linkedin" : "Linkedin",
+    "resume" : "Resume",
+    "sendMessage" : "Send message"
+  },
+
+  "sendMessageData" : {
+     "title" : "Send message",
+     "name" : "Name",
+     "email" :   "Email",
+     "subject" :   "Subject",
+     "message" :   "Message",
+  
+     "mandatoryText" : "mandatory fields",
+     "send" :   "Send",
+     "cancel" :   "Cancel",
+  
+     "msgSentConfirmation" :   "Message sent"
+  },
+
+  "projectsData" : {
+     "title" :   "All projects",
+     "nameFilter" :   "Name",
+     "dateFilter" :   "Date"
   }
 }

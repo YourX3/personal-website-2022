@@ -13,10 +13,12 @@
 }
 
 .language-link {
-  color: var(--light);
+  color: var(--tertiary);
   text-decoration: none;
+  cursor: pointer;
 }
 
-.language-link.router-link-exact-active {
+.language-link.activated {
   text-decoration: underline;
+  color: var(--light);
 }

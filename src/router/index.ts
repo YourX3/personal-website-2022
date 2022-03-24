@@ -8,31 +8,35 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     path: "/",
-    alias: ['/en/', '/fr/'],
     name: "home",
     component: () =>
       import("../views/HomeView/HomeView.vue"),
   },
 
-
   {
     path: "/about",
     name: "about",
     component: () => import("../views/AboutView/AboutView.vue"),
-    alias: [
-      '/en/about',
-      '/fr/about',
-    ]
   },
+
+  {
+    path: "/projects",
+    name: "projects",
+    component: () => import("../views/ProjectsView/ProjectsView.vue")
+  },
+
+  {
+    path: "/projects/:id",
+    alias: ['/project/:id'],
+    name: "project-content",
+    component: () => import("../views/ProjectContentView/ProjectContentView.vue")
+  },
+
 
   {
     path: "/contacts",
     name: "contacts",
-    component: () => import("../views/ContactsView/ContactsView.vue"),
-    alias: [
-      '/en/contacts',
-      '/fr/contacts',
-    ]
+    component: () => import("../views/ContactsView/ContactsView.vue")
   },
 ];
 

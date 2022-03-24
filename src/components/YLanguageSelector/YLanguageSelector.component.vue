@@ -1,11 +1,11 @@
 <template>
   <div class="selector-content">
     
-    <div v-on:click="(event) => setLanguage(event, 'fr')" class="link-box">
-      <router-link class="language-link" :to="setLanguageInUrl('fr')">FR</router-link>
+    <div v-on:click="switchLanguage('fr')" :class="'link-box language-link ' + linkActivated('fr')">
+      FR
     </div>
-    <div v-on:click="(event) => setLanguage(event, 'en')" class="link-box">
-      <router-link class="language-link" :to="setLanguageInUrl('en')">EN</router-link>
+    <div v-on:click="switchLanguage('en')" :class="'link-box language-link ' + linkActivated('en')">
+      EN
     </div>
   </div>
 </template>

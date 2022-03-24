@@ -46,12 +46,12 @@
     }
 
     /**
-     * @desc loads language data, considering available informations about url and navigator
+     * @desc loads language data, considering available informations from localStorage and navigator
      */
     private initLanguage() : void {
-      const language = NavigationUtils.getUrlLanguage();
-      // if there's a language in url
-      if(language) {
+      const language = localStorage.getItem("lang");
+      // if there's a language in localStorage
+      if(language && language.length) {
         LanguageManager.loadLanguage(language);
         this.$root.$emit("language-update");
       }
@@ -60,22 +60,9 @@
         // loads navigator language if it's available, else, loads french data
         const defaultLanguage = navigatorLanguage.length ? navigatorLanguage : 'fr';
         LanguageManager.loadLanguage(defaultLanguage);
-        this.$router.push(this.setLanguageInUrl(defaultLanguage)).then(() => {
-          this.$root.$emit("language-update");
-        });
+        this.$root.$emit("language-update");
       }
     }
-
-    /**
-     * @desc add given language in current url
-     */
-    private setLanguageInUrl(language: string) : string {
-      const url = this.$route.fullPath;
-      const currentLanguageEndIndex = url.indexOf('/', 1);
-
-      return '/' + language + url.substring(currentLanguageEndIndex);
-    }
-
   }
 
 </script>

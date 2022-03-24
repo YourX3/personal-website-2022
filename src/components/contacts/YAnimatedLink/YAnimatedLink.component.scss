@@ -68,7 +68,6 @@
 }
 .link-title-box.show.right {
   transform:  translateX(-12px) scaleX(1);
-  color: var(--light);
 }
 .link-content:hover .link-title-box.right {
   box-shadow: 5px 0px 5px var(--light);
@@ -86,7 +85,6 @@
 }
 .link-title-box.show.left {
   transform:  translateX(12px) scaleX(1);
-  color: var(--light);
 }
 .link-content:hover .link-title-box.left {
   box-shadow: -5px 0px 5px var(--light);

@@ -11,7 +11,7 @@
       </v-icon>
     </div>
 
-    <div v-if="textSide === 'right'" :class="'link-title-box ' + visibility + ' ' + textSide" ref="linkTitle">
+    <div v-if="textSide === 'right'" :class="'link-title-box ' + labelVisibility + ' ' + textSide" ref="linkTitle">
       <slot name="title"></slot>
     </div>
 

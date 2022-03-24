@@ -9,28 +9,34 @@ import { Component, Prop, Vue } from "vue-property-decorator";
   }
 })
 export default class YLanguageSelector extends Vue {
-  
-  /**
-   * @desc add the given language in the current url
-   * @returns the edited url
-   */
-  private setLanguageInUrl(language: string) : string {
-    const url = this.$route.fullPath;
-    const currentLanguageEndIndex = url.indexOf('/', 1);
 
-    return '/' + language + url.substring(currentLanguageEndIndex);
+  mounted() : void {
+    // listen to language updates to update links
+    this.$root.$on("language-update", () => {
+      this.$forceUpdate();
+    });
+  }
+
+  /**
+   * @desc switch to given language
+   * @param language 'fr' or 'en' 
+   */
+  private switchLanguage(language : string) : void {
+    LanguageManager.loadLanguage(language);
+    localStorage.setItem("lang", language);
+    this.$root.$emit("language-update");
   }
 
 
   /**
-   * @desc loads the given language only if event target is not the router link box  
-   * @param event click event
-   * @param language language tp load
+   * @desc check if given language is the current website language
+   * @param language language to test
+   * @returns 'activated' if same, else '' 
    */
-  private setLanguage(event : PointerEvent, language : string) : void {
-    if(event && !(event.target as Element).classList.contains('link-box')){
-      LanguageManager.loadLanguage(language);
-      this.$root.$emit("language-update");
+  private linkActivated(language : string) : string {
+    if(LanguageManager.currentLanguage === language) {
+      return 'activated';
     }
+    return '';
   }
 }

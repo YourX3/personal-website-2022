@@ -16,13 +16,4 @@ export default class YToolbar extends Vue {
       this.$forceUpdate();
     });
   }
-
-  /**
-   * @desc insert current language in url before the given path
-   * @param path
-   * @returns the url containing the language
-   */
-  private getPathWithLanguage(path: string) : string {
-    return NavigationUtils.getPathWithLanguage(path);
-  }
 }

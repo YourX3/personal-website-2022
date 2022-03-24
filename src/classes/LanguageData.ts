@@ -35,6 +35,43 @@ export class AboutLanguageData {
 }
 
 /**
+ * @desc data format for contacts view
+ */
+ export class ContactsLanguageData {
+  public github : string = "";
+  public linkedin : string = "";
+  public resume : string = "";
+  public sendMessage : string = "";
+}
+
+/**
+ * @desc data format for send message component
+ */
+ export class SendMessageLanguageData {
+  public title : string = "";
+  public name : string = "";
+  public email : string = "";
+  public subject : string = "";
+  public message : string = "";
+
+  public mandatoryText : string = "";
+  public send : string = "";
+  public cancel : string = "";
+
+  public msgSentConfirmation : string = "";
+}
+
+/**
+ * @desc data format for projects view
+ */
+ export class ProjectsLanguageData {
+  public title : string = "";
+  public nameFilter : string = "";
+  public dateFilter : string = "";
+}
+
+
+/**
  * @desc data format containing all texts that have to be translated considering the selected language
  */
 export class LanguageData {
@@ -42,4 +79,7 @@ export class LanguageData {
 
   public homeData: HomeLanguageData = new HomeLanguageData();
   public aboutData: AboutLanguageData = new AboutLanguageData();
+  public contactsData: ContactsLanguageData = new ContactsLanguageData();
+  public sendMessageData: SendMessageLanguageData = new SendMessageLanguageData();
+  public projectsData: ProjectsLanguageData = new ProjectsLanguageData();
 }

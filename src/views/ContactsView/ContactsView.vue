@@ -4,30 +4,30 @@
     <section class="contacts-section">
 
       <div class="links-box">
-        <YAnimatedLink :defaultX="50" :defaultY="50" :animationMovement="true" :birthDelay="500"
+        <YAnimatedLink :defaultX="50" :defaultY="50" :animationMovement="true" :birthDelay="300"
          :url="'https://github.com/YourX3'">
           <template v-slot:title>
-            Github
+            {{ languageData.github }}
           </template>
           <template v-slot:icon>
             mdi-github
           </template>
         </YAnimatedLink>
 
-        <YAnimatedLink :defaultX="650" :defaultY="175" :animationMovement="true" :birthDelay="1100" textSide="left"
-           :url="'https://github.com/YourX3'">
+        <YAnimatedLink :defaultX="650" :defaultY="175" :animationMovement="true" :birthDelay="600" textSide="left"
+           :url="'https://www.linkedin.com/in/youri-menubarbe-b68b51234/'">
           <template v-slot:title>
-            Linkedin
+            {{ languageData.linkedin }}
           </template>
           <template v-slot:icon>
             mdi-linkedin
           </template>
         </YAnimatedLink>
 
-        <YAnimatedLink :defaultX="200" :defaultY="300" :animationMovement="true" :birthDelay="1800"
+        <YAnimatedLink :defaultX="200" :defaultY="300" :animationMovement="true" :birthDelay="900"
            :url="'https://github.com/YourX3'">
           <template v-slot:title>
-            Curriculum Vitae
+            {{ languageData.resume }}
           </template>
           <template v-slot:icon>
             mdi-file-account
@@ -37,10 +37,7 @@
       
 
       <div class="send-email-box">
-        <v-btn class="send-email-button" text>
-          <v-icon class="send-email-icon">mdi-email-send-outline</v-icon>
-          Envoyer un mail
-        </v-btn>
+        <YSendMailDialog />
       </div>
       
     </section>
