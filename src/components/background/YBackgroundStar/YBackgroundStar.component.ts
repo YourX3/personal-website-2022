@@ -7,39 +7,41 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 export default class YBackgroundStar extends Vue {
   // window section x position, from 0 to 2
   @Prop({default: 0})
-  sectionX: number;
+  public sectionX: number;
 
   // window section y position, from 0 to 2
   @Prop({default: 0})
-  sectionY: number;
+  public sectionY: number;
 
   // star birth animation duration
-  birthDuration : number;
-  lightIntensity : number;
+  private birthDuration : number;
+  private lightIntensity : number;
 
   // birth animation start timestamp
-  birthStart : number;
-  birthDone = false;
+  private birthStart : number;
+  private birthDone = false;
 
   // html element of the star
-  starEl? : HTMLElement;
+  private starEl? : HTMLElement;
 
   // initial star position
-  xStartPos : number;
-  yStartPos : number;
-  size : number;
+  private xStartPos : number;
+  private yStartPos : number;
+  private size : number;
+
+  private unitRef = 'vw';
 
   // window center
-  centerX : number;
-  centerY : number;
+  private centerX : number;
+  private centerY : number;
 
   // duration for the star to complete a tour around window center 
-  cirlceRevolutionDuration : number;
+  private cirlceRevolutionDuration : number;
 
   // force applied to stars when mouse around
-  deportationForce = 0;
-  deportationDirX = 0;
-  deportationDirY = 0;
+  private deportationForce = 0;
+  private deportationDirX = 0;
+  private deportationDirY = 0;
 
   private mounted() : void {
     this.init();
@@ -49,33 +51,65 @@ export default class YBackgroundStar extends Vue {
    * @desc init star position, animation, movements, etc...
    */
   private init() : void {
-    // to create a real circle around center
-    let windowLargestDimension = Math.max(window.screen.width, window.screen.height) /3;
-    const extraWidth = 100/3;
-    // enlarge circle a bit to avoid blank spaces due to rotation
-    windowLargestDimension += 100/3;
-    this.xStartPos = (Math.random() + this.sectionX) * windowLargestDimension - extraWidth/2; 
-    this.yStartPos = (Math.random() + this.sectionY) * windowLargestDimension - extraWidth/2; 
-    this.size = Math.random() * 10 + 6;
+    this.updateStarTransform();
+
     this.birthDuration = Math.random() * 4000 + 1200; // in ms
     this.lightIntensity = Math.random() * 0.7 + 0.1;
     this.cirlceRevolutionDuration = Math.random() * 10 * 60 * 1000 + 5 * 60 * 1000; // ~= 7min 30
-
-    // window center
-    this.centerX = window.screen.width /2;
-    this.centerY = window.screen.height /2;
-
-    // set all style properties
-    this.starEl = (this.$refs.star as HTMLElement);
-    this.starEl.style.left = this.xStartPos + 'px';
-    this.starEl.style.top = this.yStartPos + 'px';
-    this.starEl.style.width = this.size + 'px';
-    this.starEl.style.height = this.size + 'px';
 
     // start animations
     this.birthAnimation();
     window.requestAnimationFrame((timestamp : number) => {this.updateMovement(timestamp)});
     window.addEventListener('mousemove', (event: MouseEvent) => this.mouseMove(event));
+
+    window.addEventListener('resize', () => {
+      this.updateStarTransform();
+    });
+  }
+
+
+  private lastWindowX = -1;
+  private lastWindowY = -1;
+
+  /**
+   * @desc updates star position, size, and rotation center, considering window size
+   */
+  private updateStarTransform() : void {
+
+    // checks if window width / height ratio is sufficient to update star position / size
+    const dDimension = Math.abs((window.innerWidth / window.innerHeight) - (this.lastWindowX / this.lastWindowY));
+    if(this.lastWindowX === -1 || dDimension > 0.12) {
+      this.lastWindowX = window.innerWidth;
+      this.lastWindowY = window.innerHeight;
+    }
+    else return;
+
+    // increases a bit star generation area, to avoid blank spaces when background rotates
+    const extraWidth = 15/3;
+    // set largest dimension of the window to define wether it should use vw or vh in order to scale
+    let windowLargestDimension = Math.max(window.innerWidth, window.innerHeight);
+    if( window.innerHeight > window.innerWidth) this.unitRef = 'vh';
+    else this.unitRef = 'vw';
+
+    // defines star initial position in precents
+    this.xStartPos = (Math.random() + this.sectionX) *(100/3) - extraWidth/2; 
+    this.yStartPos = (Math.random() + this.sectionY) *(100/3) - extraWidth/2; 
+
+    // set star size
+    // average is one 1% of largest dimension multiplied by rectangle ratio
+    this.size = ((Math.random() * 10 + 6)/11 * (Math.sqrt(window.innerWidth * window.innerHeight)) / windowLargestDimension);
+
+    // aplies all defined parameters to the star element
+    if(!this.starEl)
+      this.starEl = (this.$refs.star as HTMLElement);
+    this.starEl.style.left = this.xStartPos + this.unitRef;
+    this.starEl.style.top = this.yStartPos + this.unitRef;
+    this.starEl.style.width = this.size + this.unitRef;
+    this.starEl.style.height = this.size + this.unitRef;
+
+    // set window center in vw or vh
+    this.centerX = window.innerWidth / windowLargestDimension /2 *100;
+    this.centerY = window.innerHeight / windowLargestDimension /2 *100;
   }
 
   /**
@@ -98,9 +132,9 @@ export default class YBackgroundStar extends Vue {
       const intensity = Math.min(elapsed / this.birthDuration, 1) * this.lightIntensity;
       if(this.starEl){
         // set star color
-        this.starEl.style.backgroundImage  = `-moz-radial-gradient(circle, rgba(209,241,247,${intensity}) 30%, rgba(18,38,58, 0) 70%)`;
-        this.starEl.style.backgroundImage  = `-webkit-radial-gradient(circle, rgba(209,241,247,${intensity}) 30%, rgba(18,38,58, 0) 70%)`;
-        this.starEl.style.backgroundImage  = `radial-gradient(circle, rgba(209,241,247,${intensity}) 30%, rgba(18,38,58, 0) 70%)`;   
+        this.starEl.style.backgroundImage  = `-moz-radial-gradient(circle, rgba(11,228,196,${intensity}) 30%, rgba(18,38,58, 0) 70%)`;
+        this.starEl.style.backgroundImage  = `-webkit-radial-gradient(circle, rgba(11,228,196,${intensity}) 30%, rgba(18,38,58, 0) 70%)`;
+        this.starEl.style.backgroundImage  = `radial-gradient(circle, rgba(11,228,196,${intensity}) 30%, rgba(18,38,58, 0) 70%)`;   
       }
 
       !this.birthDone && window.requestAnimationFrame((timestamp) => {this.updateBirthAnimation(timestamp)});
@@ -127,12 +161,12 @@ export default class YBackgroundStar extends Vue {
 
     // if mouse is near
     if(this.deportationForce > 0) {
-      newPos[0] += this.deportationDirX * this.deportationForce;
-      newPos[1] += this.deportationDirY * this.deportationForce;
+      newPos[0] += this.deportationDirX * this.deportationForce * 0.2;
+      newPos[1] += this.deportationDirY * this.deportationForce * 0.2;
     }
 
-    this.starEl.style.left = newPos[0] + 'px';
-    this.starEl.style.top = newPos[1] + 'px';
+    this.starEl.style.left = newPos[0] + this.unitRef;
+    this.starEl.style.top = newPos[1] + this.unitRef;
 
     window.requestAnimationFrame((timestamp) => {this.updateMovement(timestamp)});
   }
@@ -142,22 +176,29 @@ export default class YBackgroundStar extends Vue {
    * @param event mouse event
    */
   private mouseMove(event : MouseEvent){
-    const mousePosX = event.clientX;
-    const mousePosY = event.clientY;
-
-    const rect = this.starEl.getBoundingClientRect();
-    const posX = rect.left + rect.width/2;
-    const posY = rect.top + rect.height/2;
-
-    const distance = this.distance(mousePosX, mousePosY, posX, posY);
-    if(distance < 300) {
-      // deportation decrease when distance increase
-      this.deportationForce = Math.sqrt((1/distance) * 300*300) -17;
-      this.deportationDirX = (posX - mousePosX) / distance;
-      this.deportationDirY = (posY - mousePosY) / distance;
+    if((this as any).$mq === 'mobile' || (this as any).$mq === 'tablet') {
+      this.deportationForce = 0;
     }
     else {
-      this.deportationForce = 0;
+      const mousePosX = event.clientX;
+      const mousePosY = event.clientY;
+  
+      // star bounding rect
+      const rect = this.starEl.getBoundingClientRect();
+      const posX = rect.left + rect.width/2;
+      const posY = rect.top + rect.height/2;
+  
+      // distance between mouse and star
+      const distance = this.distance(mousePosX, mousePosY, posX, posY);
+      if(distance < 300) {
+        // deportation decrease when distance increase
+        this.deportationForce = Math.sqrt((1/distance) * 300*300) -17;
+        this.deportationDirX = (posX - mousePosX) / distance;
+        this.deportationDirY = (posY - mousePosY) / distance;
+      }
+      else {
+        this.deportationForce = 0;
+      }
     }
   }
 

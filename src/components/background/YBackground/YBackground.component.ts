@@ -25,7 +25,9 @@ export default class YBackground extends Vue {
    * @desc starts star generation
    */
   generateStars() : void {
+    // factor associated to window ratio
+    const windowFactor = Math.sqrt(Math.sqrt((window.innerWidth * window.innerHeight) / (1200*720)));
     // defines displayed star count 
-    this.starCount = Math.round(Math.random() * 50) + 150;
+    this.starCount = (Math.round(Math.random() * 40) + 135) * windowFactor;
   }
 }
