@@ -1,0 +1,20 @@
+
+.selector-content {
+  z-index: 1;
+  display: flex;
+}
+
+.link-box {
+  margin-right: 7px;
+}
+
+.language-link {
+  color: var(--tertiary) !important;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.language-link.activated {
+  color: var(--light) !important;
+  background-color: #16e68f11;
+}

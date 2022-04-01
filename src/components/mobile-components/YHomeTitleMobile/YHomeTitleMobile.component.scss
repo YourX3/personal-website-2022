@@ -1,0 +1,117 @@
+
+.title-content {
+  letter-spacing: 0.1em;
+  z-index: 1;
+  padding-top: 60px;
+  padding-left: 12px;
+  padding-right: 12px;
+  text-align: center;
+}
+
+
+
+.title-content .title-name {
+  transition: opacity 2s ease;
+  transition-delay: 0.2s;
+}
+
+.title-content .title-activity {
+  transition: opacity 1.8s ease;
+  transition-delay: 0.5s;
+}
+
+.title-content .title-job {
+  transition: opacity 1.8s ease;
+  transition-delay: 0.8s;
+}
+
+.title-content .details {
+  transition: opacity 1.8s ease;
+  transition-delay: 1.1s;
+}
+
+.title-content.hide .title-name,
+.title-content.hide .title-activity,
+.title-content.hide .title-job,
+.title-content.hide .details {
+  opacity: 0;
+}
+
+.title-content.show .title-name,
+.title-content.show .title-activity,
+.title-content.show .title-job,
+.title-content.show .details {
+  opacity: 1;
+}
+
+
+
+.title-name {
+  margin-top: 50px;
+  font-size: 10vw;
+  color: var(--light);
+  z-index: 1 !important;
+  font-weight: 900;
+
+  text-align: left;
+  align-items: center;
+  display: flex;
+}
+
+.flex-box {
+  display: flex;
+  transform: translateX(-18px);
+}
+
+.title-logo {
+  filter: invert(96%) sepia(34%) saturate(180%) hue-rotate(77deg) brightness(91%) contrast(85%);
+  width: 13vw;
+  height: 13vw;
+}
+
+.YM-logo-box {
+  border-radius: 100px;
+  border: solid 2px var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  padding: 8px;
+}
+
+
+.title-activity {
+  margin-top: 40px;
+  font-size: 1.4em;
+  color: var(--tertiary);
+  z-index: 1 !important;
+  font-weight: 900;
+
+  text-align: left;
+}
+
+.title-job {
+  margin-top: 20px;
+  font-size: 1.4em;
+  color: var(--tertiary);
+  //background-color: #14ad8a;
+  z-index: 1 !important;
+  font-weight: 900;
+
+  text-align: left;
+}
+
+
+
+
+.details {
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: var(--v-secondary-lighten3);
+  z-index: 1 !important;
+  font-weight: 500;
+
+  text-align: left;
+
+  position: relative;
+}

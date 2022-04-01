@@ -1,0 +1,22 @@
+.mobile-header-toolbar {
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: var(--primary) !important;
+}
+
+.title-logo {
+  filter: invert(56%) sepia(39%) saturate(3682%) hue-rotate(129deg) brightness(91%);
+  width: 38px;
+  height: 38px;
+}
+
+.YM-logo-box {
+  border-radius: 100px;
+  border: solid 2px var(--tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  margin-left: -4px !important;
+  cursor: pointer;
+}
