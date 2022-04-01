@@ -1,5 +1,6 @@
 import YHomeNewsScroller from "@/components/home/YHomeNewsSlider/YHomeNewsScroller.component.vue";
 import YHomeTitle from "@/components/home/YHomeTitle/YHomeTitle.component.vue";
+import YHomeTitleMobile from "@/components/mobile-components/YHomeTitleMobile/YHomeTitleMobile.component.vue";
 import { Component, Prop, Vue } from "vue-property-decorator";
 
 /**
@@ -8,7 +9,8 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 @Component({
   components: {
     YHomeTitle,
-    YHomeNewsScroller
+    YHomeNewsScroller,
+    YHomeTitleMobile
   }
 })
 export default class HomeView extends Vue {

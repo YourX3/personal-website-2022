@@ -1,7 +1,7 @@
 <template>
   <div class="view-content">
 
-    <section class="home-section">
+    <section class="home-section" v-if="$mq !== 'mobile' && $mq !== 'tablet'">
 
       <div class="splitted-section">
         <div class="section-left">
@@ -14,6 +14,8 @@
       </div>
       
     </section>
+
+    <YHomeTitleMobile v-if="$mq === 'mobile' || $mq === 'tablet'" />
     
   </div>
 </template>

@@ -2,6 +2,7 @@
     <div class="title-content hide" ref="titleContent">
       <div class="title-name">
         Youri Menubarbe
+        <img src="@/assets/logo.svg" class="title-logo" />
       </div>
 
       <div class="title-activity">

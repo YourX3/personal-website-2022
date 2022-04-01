@@ -1,5 +1,6 @@
 import YAnimatedLink from "@/components/contacts/YAnimatedLink/YAnimatedLink.component.vue";
 import YSendMailDialog from "@/components/contacts/YSendMailDialog/YSendMailDialog.component.vue";
+import YMobileContactLink from "@/components/mobile-components/YMobileContactLink/YMobileContactLink.component.vue";
 import LanguageManager from "@/scripts/LanguageManager";
 import { Component, Prop, Vue } from "vue-property-decorator";
 
@@ -9,12 +10,13 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 @Component({
   components: {
     YAnimatedLink,
-    YSendMailDialog
+    YSendMailDialog,
+    YMobileContactLink
   }
 })
 export default class ContactsView extends Vue {
   
-  languageData = LanguageManager.languageData.contactsData;
+  private languageData = LanguageManager.languageData.contactsData;
 
   mounted() : void {
     // listen to language updates to update language data

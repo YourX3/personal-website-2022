@@ -6,7 +6,7 @@
       max-width="700px"
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn class="send-email-button" text
+        <v-btn :class="'send-email-button ' + (mobile ? 'mobile' : '')" text
           v-bind="attrs"
           v-on="on"
         >
@@ -18,7 +18,7 @@
         <v-card-title>
           <span class="card-title">{{ languageData.title }}</span>
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="card-text-box">
           <v-container>
             <v-row>
               <v-col

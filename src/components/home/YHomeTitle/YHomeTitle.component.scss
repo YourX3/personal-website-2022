@@ -7,8 +7,6 @@
   width: 100%;
 }
 
-
-
 .title-content .title-name {
   transition: opacity 2s ease;
   transition-delay: 0.2s;
@@ -54,7 +52,15 @@
 
   text-align: left;
 
-  text-indent: 0px;
+  align-items: center;
+  display: flex;
+}
+
+.title-logo {
+  filter: invert(96%) sepia(34%) saturate(180%) hue-rotate(77deg) brightness(91%) contrast(85%);
+  width: 60px;
+  height: 60px;
+  margin-left: 15px;
 }
 
 

@@ -10,52 +10,58 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 export default class YAnimatedLink extends Vue {
   // side to show link label from icon circle, 'left' or 'right'
   @Prop({default: 'right'})
-  textSide : string;
+  public textSide : string;
 
   // boolean param that defines wether label is rendered on mount or not
   @Prop({default: true})
-  init_hideText: boolean;
+  public init_hideText: boolean;
 
-  // x position of component at render
+  // x position in % of component at render from left side if turned right, from right if turned left
   @Prop({default: 0})
-  defaultX: number;
+  public defaultX: number;
 
-  // y position of component at render
+  // y position in px of component at render from top
   @Prop({default: 0})
-  defaultY: number;
+  public defaultY: number;
 
   // defines wether link is moving or not
   @Prop({default: true})
-  animationMovement: boolean;
+  public animationMovement: boolean;
 
   // defines delay before component starts self-animations
   @Prop({default: 200})
-  birthDelay: number;
+  public birthDelay: number;
 
   // url on click
   @Prop({default: ''})
-  url: string;
+  public url: string;
 
   // movement animation duration  
-  movementAnimDuration = 10000;
+  private movementAnimDuration = 10000;
   // movement animation intensity
-  movementIntensity = 8;
+  private movementIntensity = 8;
 
   // first animation timestamps
-  animationStartTime? : number;
+  private animationStartTime? : number;
 
   // html element of the component
-  contentEl? : HTMLElement;
+  private contentEl? : HTMLElement;
 
   // label css class defining wether label is visible or not
-  labelVisibility = "hide";
+  private labelVisibility = "hide";
+
+  // current movement animation direction
+  private moveDir = -1;
 
   mounted() : void {
     this.init();
 
     setTimeout(() => {
       this.labelVisibility = "show";
-      this.startAnimations();
+      // starts movement after appearance
+      setTimeout(() => {
+        this.startAnimations();
+      }, this.birthDelay * 2);
     }, this.birthDelay);
   }
 
@@ -65,7 +71,19 @@ export default class YAnimatedLink extends Vue {
   private init() : void {
     this.contentEl = (this.$refs.linkContent as HTMLElement);
     this.contentEl.style.top = this.defaultY + 'px';
-    this.contentEl.style.left = this.defaultX + 'px';
+    this.initXPos();
+  }
+
+  /**
+   * @desc updates composant positioning, wether if text is placed on left or right side
+   */
+  private initXPos() : void {
+    if(this.textSide === 'left') {
+      this.contentEl.style.right = this.defaultX + '%';
+    }
+    else {
+      this.contentEl.style.left = this.defaultX + '%';
+    }
   }
 
   /**
@@ -85,12 +103,14 @@ export default class YAnimatedLink extends Vue {
     }
     if(!this.contentEl) return;
 
-    const elapsed = timestamp - this.animationStartTime;
     // y axis periodic movement
-    const dy = Math.sin((elapsed / this.movementAnimDuration) * 6.283) * this.movementIntensity;
-    this.contentEl.style.transform = `translateY(${dy}px)`;
+    const newY = this.movementIntensity * 3 * this.moveDir;
+    this.moveDir *= -1;
+    this.contentEl.style.transform = `translateY(${newY}px)`;
 
-    window.requestAnimationFrame((timestamp : number) => {this.movementAnimation(timestamp)});
+    setTimeout(() => {
+      window.requestAnimationFrame((timestamp : number) => {this.movementAnimation(timestamp)});
+    }, this.movementAnimDuration);
   }
 
   /**

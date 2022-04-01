@@ -1,12 +1,27 @@
 
 .links-box {
-  width: 65rem;
+  max-width: 70rem;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   height: 450px;
   position: relative;
 }
+
+.mobile-links-box {
+  margin-top: 70px;
+  margin-left: 6px;
+  width: 100%;
+  text-align: left;
+}
+
+.contacts-title {
+  margin-bottom: 20px;
+  color: var(--v-tertiary-lighten1);
+  font-size: 1.5em;
+  text-indent: 25px;
+}
+
 
 .send-email-box {
   margin-top: 20px;
@@ -22,11 +37,22 @@
   justify-content: center;
 }
 
+.send-email-box.mobile {
+  font-size: 1.2em;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--secondary) !important;
+  border-radius: 50px;
+}
+
+
 .send-email-button {
   font-size: 1.1em !important;
   font-weight: 900 !important;
   text-transform: none;
-  color: var(--v-secondary-lighten3) !important;
+  color: white !important;
   display: flex;
   align-items: center;
   justify-content: center;

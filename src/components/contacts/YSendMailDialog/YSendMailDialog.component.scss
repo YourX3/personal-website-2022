@@ -2,8 +2,8 @@
 
 
 .send-email-button {
-  font-size: 1.1em !important;
-  font-weight: 900 !important;
+  font-size: 1.04em !important;
+  font-weight: 600 !important;
   text-transform: none;
   color: var(--v-secondary-lighten3) !important;
   display: flex;
@@ -14,10 +14,15 @@
   border-radius: 100px !important;
 }
 
+.send-email-button.mobile {
+  color: white !important;
+}
+
+
 .send-email-icon {
   font-size: 30px;
   color: var(--v-secondary-lighten3);
-  margin-right: 20px;
+  margin-right: 13px;
 }
 
 
@@ -39,4 +44,11 @@
 
 .send-button {
   font-weight: 900;
+}
+
+@media only screen and (max-width: 900px) {
+  .card-text-box {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
 }

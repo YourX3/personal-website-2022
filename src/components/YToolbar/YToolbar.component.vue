@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <v-app-bar class="header-toolbar">
       <div class="header-links-box">
         <div class="header-router-link-box">

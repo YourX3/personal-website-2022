@@ -6,7 +6,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
  */
 @Component({})
 export default class YHomeTitle extends Vue {
-  languageData = LanguageManager.languageData.homeData;
+  private languageData = LanguageManager.languageData.homeData;
 
   mounted() : void {
     this.birthAnim();

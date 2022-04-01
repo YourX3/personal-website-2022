@@ -1,14 +1,22 @@
 import LanguageManager from "@/scripts/LanguageManager";
 import { Component, Prop, Vue } from "vue-property-decorator";
 
+/**
+ * @desc dialog box that allows to write and send a message
+ */
 @Component({
   components: {
   }
 })
 export default class YSendMailDialog extends Vue {
-  dialog = false;
+  // defines wether or not the component is showing with mobile style
+  @Prop({default: false}) 
+  public mobile : boolean;
 
-  languageData = LanguageManager.languageData.sendMessageData;
+  // property used in order to show or hide the dialog box
+  private dialog = false;
+
+  private languageData = LanguageManager.languageData.sendMessageData;
 
   mounted() : void {
     // listen to language updates to update language data

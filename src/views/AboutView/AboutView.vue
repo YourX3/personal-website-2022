@@ -4,7 +4,7 @@
     <section class="about-section">
 
       <div>
-        <div class="self-photo-box">
+        <div class="self-photo-box" v-if="$mq !== 'mobile' && $mq !== 'tablet'" >
           <img class="self-photo" src="https://images.assetsdelivery.com/compings_v2/luismolinero/luismolinero1909/luismolinero190917934.jpg" />
         </div>
 
@@ -31,8 +31,11 @@
             <li>{{ languageData.text7 }}</li>
           </ul>
         </p>
+
+        <div class="self-photo-box-mobile" v-if="$mq === 'mobile' || $mq === 'tablet'">
+          <img class="self-photo-mobile" src="https://images.assetsdelivery.com/compings_v2/luismolinero/luismolinero1909/luismolinero190917934.jpg" />
+        </div>
       </div>
-      
 
     </section>
    

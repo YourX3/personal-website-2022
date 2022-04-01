@@ -1,19 +1,41 @@
 
 .about-section {
-  padding: 60px 10px 0px 10px;
-  max-width: 64rem;
   text-align: left;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media only screen and (min-width: 900px) {
+  .about-section {
+    padding: 55px 10px 0px 10px;
+    max-width: 64rem;
+  }
+
+  .about-title {
+    text-indent: 35px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .about-section {
+    padding: 80px 10px 0px 10px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-title {
+    text-indent: 10px;
+  }
 }
 
 .about-title {
   font-size: 2em;
   color: var(--light);
   font-weight: 900;
-  text-indent: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
+
 
 .about-text {
   font-size: 1.2em;
@@ -52,4 +74,32 @@ li {
   padding: 5px;
   
   object-fit: cover;
+}
+
+.self-photo-box-mobile {
+  width: 220px;
+  height: 220px;
+  max-width: 220px;
+  max-height: 220px;
+
+  padding: 10px;
+
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.self-photo-mobile {
+  width: 200px;
+  height: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 4px 30px;
+  border-style: dotted;
+  border-color: var(--secondary);
+  border-width: 5px;
+  padding: 5px;
+  
+  object-fit: cover;
+  margin: auto;
 }
