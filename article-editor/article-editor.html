@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="article-editor.css">
+    <script src="article-editor.js"></script>
+  </head>
+
+  <body>
+
+    <div class="page-container">
+      <div class="title-input-box">
+        Titre:
+        <input type="text" class="title-field" id="title-input" />
+      </div>
+  
+      <div class="details-input-box">
+        <div class="details-line">
+          <div>Article Id</div>
+          <div>Image de couverture</div>
+          <div>Type</div>
+          <div>Langage</div>
+        </div>
+        <div class="details-line">
+          <input type="text" class="details-field" id="articleId-input" />
+          <input type="text" class="details-field" id="coverImgSrc-input" />
+          <input type="text" class="details-field" id="type-input" />
+          <input type="text" class="details-field" id="language-input" />
+        </div>
+        </div>
+      </div>
+
+      <div class="sum-text-box">
+        Résumé
+        <textarea class="sum-area" id="sum-input"></textarea>
+      </div>
+
+      <div class="text-content-box">
+        Texte
+        <textarea class="text-content-area" id="text-content-input"></textarea>
+      </div>
+
+
+      <div class="dates-input-box">
+        <div class="date-line">
+          <div>Créé le</div>
+          -------
+          <div>Mis à jour le</div>
+        </div>
+        <div class="date-line">
+          <input type="date" class="details-field" id="createdAt-input" />
+          -------
+          <input type="date" class="details-field" id="updatedAt-input" />
+        </div>
+      </div>
+
+      <div class="create-json-button-box">
+        <button onclick="createJSON()">Créer JSON</button>
+      </div>
+
+      <div class="json-box" id="json-output">
+
+      </div>
+
+    </div>
+
+
+    <div class="preview-container">
+
+      <div class="preview-content" id="preview-content">
+        
+      </div>
+
+    </div>
+  </body>
+</html>

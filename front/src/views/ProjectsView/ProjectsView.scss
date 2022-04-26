@@ -1,0 +1,85 @@
+
+
+.projects-section {
+  max-width: 66rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-title {
+  color: var(--light);
+  font-weight: 900;
+  font-size: 1.6em;
+}
+
+.header-buttons {
+  margin-left: 50px;
+  display: flex;
+}
+
+@media only screen and (max-width: 900px) {
+  .projects-section {
+    margin-top: 80px;
+  }
+
+  .projects-header {
+    display: block;
+    text-align: left;
+  }
+
+  .header-title {
+    margin-bottom: 20px;
+  }
+
+  .header-buttons {
+    margin-left: 0px;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .projects-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .header-buttons {
+    margin-left: 50px;
+  }
+}
+
+
+.filter-button-toggle {
+  background-color: unset !important;
+}
+
+.filter-button {
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 50px !important;
+  color: var(--light) !important;
+  text-transform: none;
+}
+
+.filter-button.filter-active {
+  color: var(--v-tertiary-lighten2) !important;
+}
+
+.filter-icon {
+  color: var(--light) !important;
+  margin-left: 8px;
+  transition: 0.3s ease-in;
+  transform: rotateZ(0);
+  font-size: 24px !important;
+}
+
+.filter-icon.reverse {
+  transform: rotateZ(180deg);
+}
+
+::v-deep .filter-button.filter-active {
+  .filter-icon {
+    color: var(--v-tertiary-lighten1) !important;
+  }
+}

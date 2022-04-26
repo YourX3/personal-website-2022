@@ -1,0 +1,97 @@
+.background-dialog {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 25px;
+
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  position: relative;
+  max-width: 72rem;
+}
+
+.carousel-img-box {
+  max-width: 72rem;
+  width: 100%;
+  background: rgb(255, 255, 255);
+}
+
+.arrow-button {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.arrow-button:last-child:hover {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.308) 100%);
+}
+
+.arrow-button:first-child:hover {
+  background: linear-gradient(90deg,rgba(0, 0, 0, 0.308) 0%,  rgba(0, 0, 0, 0) 100%);
+}
+
+.arrow-button >>> button {
+  padding: 0 !important;
+}
+
+.arrow-button:first-child {
+  left: 0;
+  top: 0;    
+}
+
+.arrow-button:first-child .arrow-icon-box {
+  text-align: left;
+  margin-left: 10px;  
+}
+
+.arrow-button:last-child {
+  right: 0;
+  top: 0;   
+}
+
+.arrow-button:last-child .arrow-icon-box {
+  text-align: right;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+
+.arrow-icon-box {
+  margin-top: auto;
+  margin-bottom: auto;  
+}
+
+.arrow-icon {
+  color: white;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.exit-button {
+  position: absolute;
+  bottom: 22px;
+  z-index: 200;
+  border-radius: 100px;
+  border-color: white;
+  border-width: 3px;
+  border-style: solid;
+  box-shadow: 0 0 6px #0000007c, inset 0 0 5px #0000007c;
+  cursor: pointer;
+}
+
+.exit-button:hover {
+  box-shadow: 0 0 6px #0000007c, 0 0 20px #9ba3eb;
+}
+
+.exit-icon {
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.425);
+}
+
+.loading-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}

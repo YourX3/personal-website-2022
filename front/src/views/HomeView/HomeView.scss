@@ -1,0 +1,24 @@
+
+
+.home-section {
+  max-width: 66rem;
+  text-align: center;
+  margin: auto;
+  z-index: 1;
+}
+
+.splitted-section {
+  display: flex;
+  z-index: inherit;
+  flex-flow: row;
+}
+
+.section-left {
+  width: 50%;
+  min-width: 33rem;
+  z-index: inherit;
+}
+
+.section-right {
+  flex-grow: 1;
+}

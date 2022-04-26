@@ -1,0 +1,58 @@
+
+.article-content {
+  font-size: 1em;
+  color: var(--light);
+  text-align: left;
+  max-width: 45rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 55px 10px 0px 10px;
+}
+
+.article-title {
+  font-size: 1.85em;
+  color: var(--light);
+  font-weight: 900;
+  margin-bottom: 3px;
+}
+
+@media only screen and (max-width: 900px) {
+  .article-title {
+    text-align: left;
+    margin-bottom: 38px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .article-title {
+    text-align: center;
+  }
+}
+
+
+.article-details {
+  display: flex;
+  font-size: 0.9em;
+  color: var(--secondary);
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.mobile-details {
+  font-size: 0.9em;
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+
+
+.article-detail {
+  margin: 0 15px;
+}
+
+.article-detail:first-child {
+  margin-left: 0;
+}
+
+.error-msg {
+  text-align: center;
+}
