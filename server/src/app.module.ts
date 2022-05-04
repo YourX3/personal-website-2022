@@ -9,9 +9,9 @@ import { ResumesApiModule } from './api/resumes-api/resume-api.module';
 
 @Module({
   imports: [
-    /*ServeStaticModule.forRoot({
+    ServeStaticModule.forRoot({
       rootPath: path.join(__dirname, '../..', 'front/dist'),
-    }),*/
+    }),
     ImagesApiModule, ArticlesApiModule, ResumesApiModule],
   controllers: [AppController],
   providers: [AppService],
