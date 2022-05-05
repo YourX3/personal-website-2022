@@ -33,6 +33,12 @@ export default class YArticleList extends Vue {
   timeout3 : any;
 
   mounted() {
+
+    // listen to language updates to update language data
+    this.$root.$on("language-update", () => {
+      this.$forceUpdate();
+    });
+
     if(this.displayedArticles && this.displayedArticles.length)
       this.displayedArticles = [...this.articles];
       switch(this.sortingProp) {

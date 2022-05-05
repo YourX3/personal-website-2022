@@ -63,5 +63,11 @@
   },
 
   "dateFormat": "DD/MM/YYYY",
-  "conceptionDetailsMessage": "Imaginé et réalisé par Youri Menubarbe"
+  "conceptionDetailsMessage": "Imaginé et réalisé par Youri Menubarbe",
+
+  "notFoundData": {
+    "title": "Page Introuvable",
+    "details": "La page que vous cherchez n'est pas accessible.",
+    "homeLink": "Accueil"
+  }
 }

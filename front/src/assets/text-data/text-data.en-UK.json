@@ -11,7 +11,8 @@
     "activity": "Engineering school student",
     "job" : "Web / video game developer",
     "details" : "2022 personal website",
-    "lastNews" : "Latest news"
+    "lastNews" : "Latest news",
+    "seeMore" : "See more"
   },
 
   "aboutData" : {
@@ -63,5 +64,11 @@
 
   "conceptionDetailsMessage": "Designed and built by Youri Menubarbe",
 
-  "dateFormat": "DD/MM/YYYY"
+  "dateFormat": "DD/MM/YYYY",
+
+  "notFoundData": {
+    "title": "Page not found",
+    "details": "The page you are looking for is not accessible.",
+    "homeLink": "Home"
+  }
 }

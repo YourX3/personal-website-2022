@@ -36,7 +36,6 @@ export default class LanguageManager {
       // loads navigator language if it's available, else, loads french data
       const defaultLanguage = navigatorLanguage.length && (navigatorLanguage.indexOf('en') > -1) ? navigatorLanguage : 'en-US';
       language = defaultLanguage;
-      console.log(defaultLanguage);
     }
 
     if(this.currentLanguage !== language) {

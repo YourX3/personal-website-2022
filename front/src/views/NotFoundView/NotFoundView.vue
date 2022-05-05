@@ -3,12 +3,12 @@
 
     <section class="not-found-section">
 
-      <div class="not-found-title">Page introuvable</div>
+      <div class="not-found-title">{{ languageData.title }}</div>
 
       <div class="details">
-        <p>La page que vous cherchez n'est pas accessible.
+        <p>{{ languageData.details }}
         <br>
-        <router-link class="home-link" to="/">> Accueil</router-link></p>
+        <router-link class="home-link" to="/">> {{ languageData.homeLink }}</router-link></p>
       </div>
 
     </section>
@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts">
+import LanguageManager from "@/scripts/LanguageManager";
 import { Component, Prop, Vue } from "vue-property-decorator";
 
 /**
@@ -27,6 +28,15 @@ import { Component, Prop, Vue } from "vue-property-decorator";
   }
 })
 export default class NotFoundView extends Vue {
+  private languageData = LanguageManager.languageData.notFoundData;
+
+  mounted() : void {
+    // listen to language updates to update language data
+    this.$root.$on("language-update", () => {
+      this.languageData = LanguageManager.languageData.notFoundData;
+      this.$forceUpdate();
+    });
+  }
 }
 </script>
 

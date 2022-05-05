@@ -81,7 +81,6 @@ export default class YMobileContactLink extends Vue {
         let imageUrl = urlCreator.createObjectURL(blobData);
         const link = document.createElement("a");
         link.href = imageUrl;
-        console.log(response.data);
         link.download = filename;
         link.click();
       })

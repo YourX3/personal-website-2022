@@ -81,6 +81,14 @@ export class ArticleLanguageData {
   public cantLoadMessage = "Impossible de charger l'article demandé";
 }
 
+/**
+ * @desc data format for not found view
+ */
+ export class NotFoundLanguageData {
+  public title = "Page Introuvable";
+  public details = "La page que vous cherchez n'est pas accessible.";
+  public homeLink = "Accueil";
+}
 
 /**
  * @desc data format containing all texts that have to be translated considering the selected language
@@ -95,6 +103,7 @@ export class LanguageData {
   public projectsData: ProjectsLanguageData = new ProjectsLanguageData();
 
   public articleData: ArticleLanguageData = new ArticleLanguageData();
+  public notFoundData: NotFoundLanguageData = new NotFoundLanguageData();
 
   public dateFormat : string = "";
   public conceptionDetailsMessage : string = "";

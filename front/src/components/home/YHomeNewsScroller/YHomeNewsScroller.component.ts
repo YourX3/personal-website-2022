@@ -71,7 +71,6 @@ export default class YHomeNewsScroller extends Vue {
       .get(  UrlConsts.getLastProjectsSumsUrl + '/' + newsMaxCount + '/' + LanguageManager.currentLanguage)
       .then((response) => {
         this.lastArticles = response.data.map((x : any) => new ArticleSumDto(x));
-        console.log(this.lastArticles);
       })
       .catch(error => console.log(error))
   }
