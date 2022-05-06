@@ -20,6 +20,9 @@ export default class YArticleSumCard extends Vue {
   @Prop({default: false})
   birthAnimation : boolean;
 
+  @Prop({default: false})
+  startHidden : boolean;
+
   /**
    * @desc delay before birth animation
    */
@@ -48,7 +51,7 @@ export default class YArticleSumCard extends Vue {
     }
   }
 
-  visibilityClass = "";
+  visibilityClass = "hide";
 
   mounted() : void {
     // listen to language updates to update language data
@@ -64,6 +67,12 @@ export default class YArticleSumCard extends Vue {
 
     if(this.birthAnimation)
       this.birthAnim();
+    else if(this.startHidden) {
+      this.visibilityClass = "hide";
+    }
+    else {
+      this.visibilityClass = "show";
+    }
   }
 
   /**

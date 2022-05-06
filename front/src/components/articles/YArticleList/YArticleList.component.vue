@@ -7,6 +7,7 @@
         :hide="hideSumCards"
         :birthAnimationDuration="0.8"
         :birthDelay="(index+1) * 100"
+        :startHidden="true"
           />
 
         <div v-if="($mq === 'mobile' || $mq === 'tablet') && index !== displayedArticles.length-1" class="separator"></div>

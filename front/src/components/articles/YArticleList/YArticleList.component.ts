@@ -28,6 +28,7 @@ export default class YArticleList extends Vue {
 
   hideSumCards = false;
 
+  timeout0 : any;
   timeout1 : any;
   timeout2 : any;
   timeout3 : any;
@@ -65,12 +66,15 @@ export default class YArticleList extends Vue {
   @Watch("sortingProp")
   @Watch("sortingOrder")
   private updateSorting() {
-    setTimeout(() => {
-      this.hideSumCards = true;
-    }, 5);
+
+    clearTimeout(this.timeout0);
     clearTimeout(this.timeout1);
     clearTimeout(this.timeout2);
     clearTimeout(this.timeout3);
+
+    this.timeout0 = setTimeout(() => {
+      this.hideSumCards = true;
+    }, 5);
     
     this.timeout1 = setTimeout(() => {
       switch(this.sortingProp) {
@@ -117,7 +121,6 @@ export default class YArticleList extends Vue {
         sortScore = b.title.localeCompare( a.title);;
       }
       return sortScore;
-      return (a.createdAt.getTime() - b.createdAt.getTime());
     });
     if(this.sortingOrder === "desc") this.displayedArticles.reverse();    
   }
