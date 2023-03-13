@@ -1,5 +1,6 @@
 import * as dotEnv from 'dotenv';
-dotEnv.config();
+const path = require('path'); 
+dotEnv.config({ path: path.join(__dirname, '.env') });
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { json, urlencoded } from 'express';
