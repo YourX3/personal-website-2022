@@ -5,6 +5,9 @@ import store from "./store";
 import Vuetify from 'vuetify';
 import { vuetifyTheme } from "./theme-config";
 
+import LazyTube from "vue-lazytube";
+Vue.use(LazyTube);
+
 Vue.config.productionTip = false;
 Vue.use(Vuetify);
 

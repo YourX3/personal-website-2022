@@ -4,6 +4,7 @@ import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import axios from 'axios';
 import * as UrlConsts from '@/classes/UrlConsts';
 import YImageLine from "../YImageLine/YImageLine.component.vue";
+import YVideo from "../YVideo/YVideo.component.vue";
 
 /**
  * @desc component that displays article details
@@ -29,6 +30,7 @@ export default class YArticleContent extends Vue {
     if(this.article && this.article.textContent) {
       this.transformedText = this.transformImages(this.article.textContent);
       this.transformedText = this.transformImageLines(this.transformedText);
+      this.transformedText = this.transformVideos(this.transformedText);
     }
   }
 
@@ -37,6 +39,7 @@ export default class YArticleContent extends Vue {
     if(this.article && this.article.textContent) {
       this.transformedText = this.transformImages(this.article.textContent);
       this.transformedText = this.transformImageLines(this.transformedText);
+      this.transformedText = this.transformVideos(this.transformedText);
     }
 
     // listen to language updates to update language data
@@ -156,6 +159,47 @@ export default class YArticleContent extends Vue {
         textToAdd + articleText.substring(endIndex + '</Y-Image-Line>'.length);
       i = indexOfImage + textToAdd.length;
 
+    }
+    return articleText;
+  }
+
+  /**
+   * @desc replace all <Y-Video> in tags the initial article text in order to display the images lines
+   * @param articleText the article initial text content
+   * @returns the text transformed, ready to be used
+   */
+  transformVideos(articleText : string) : string {
+    for(let i=0; i < articleText.length; ++i) {
+      const indexOfVideo = articleText.indexOf('<Y-Video', i);
+      if(indexOfVideo === -1) break;
+
+      const paramsEndIndex = articleText.indexOf('>', indexOfVideo);
+      if(indexOfVideo === -1) break;
+
+      const endIndex = articleText.indexOf('</Y-Video>', paramsEndIndex);
+      if(indexOfVideo === -1) break;
+
+      const upperElId = "video-mark" + (i+1);
+      const textToAdd = `<article-video-mark id="${upperElId}"></article-video-mark>`;
+
+      const src = articleText.substring(paramsEndIndex+1, endIndex);
+
+      let ComponentClass = Vue.extend(YVideo);
+      let instance = new ComponentClass({
+          propsData: { "src" : src, root: this.$root }
+      });
+
+      setTimeout(() => {
+        instance.$mount(); // pass nothing
+        const upperEl = this.findElementById(upperElId);
+        if(upperEl) {
+          upperEl.parentNode.insertBefore(instance.$el, upperEl);
+        }
+      }, 10);
+
+      articleText = articleText.substring(0, indexOfVideo) + 
+        textToAdd + articleText.substring(endIndex + '</Y-Video>'.length);
+      i = indexOfVideo + textToAdd.length;
     }
     return articleText;
   }
